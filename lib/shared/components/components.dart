@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/layout/news_app/cubit/cubit.dart';
-import '../../modules/news_app/web_view/web_view_screen.dart';
 
 Widget defaultButton({
   double width = double.infinity,
@@ -109,17 +106,19 @@ Widget buildArticleItem(article, context , index) => Container(
       child: InkWell(
         onTap: ()
         {
-          if(Platform.isAndroid)
-          {
-            navigateTo(
-              context,
-              WebViewScreen(article['url']),
-            );
-          }else if(Platform.isWindows)
-          {
-            NewsCubit.get(context).selectBusinessItem(index);
-          }
+          NewsCubit.get(context).selectBusinessItem(index);
+
           NewsCubit.get(context).isOrIsNotSelectedItem();
+
+          // if(Platform.isAndroid)
+          // {
+          //   navigateTo(
+          //     context,
+          //     WebViewScreen(article['url']),
+          //   );
+          // }else if(Platform.isWindows){
+          //   NewsCubit.get(context).selectBusinessItem(index);
+          // }
         },
         child: Padding(
           padding: const EdgeInsets.all(20.0),

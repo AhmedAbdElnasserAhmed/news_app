@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,17 +30,17 @@ void main() async {
   // بيتأكد ان كل حاجه هنا في الميثود خلصت و بعدين يتفح الابلكيشن
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (Platform.isWindows)
-  {
-    testWindowFunctions();
-
-    // await DesktopWindow.setMinWindowSize(
-    //   const Size(
-    //     350,
-    //     650,
-    //   ),
-    // );
-  }
+  // if (Platform.isWindows)
+  // {
+  //   await testWindowFunctions();
+  //
+  //   // await DesktopWindow.setMinWindowSize(
+  //   //   const Size(
+  //   //     350,
+  //   //     650,
+  //   //   ),
+  //   // );
+  // }
 
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
